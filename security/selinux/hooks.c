@@ -2187,7 +2187,7 @@ static int check_nnp_nosuid(const struct linux_binprm *bprm,
 	int nosuid = (bprm->file->f_path.mnt->mnt_flags & MNT_NOSUID);
 	int rc;
 
-	int rc, error;
+	int error;
 	u32 seclen;
 	
 	if (!nnp && !nosuid)
