@@ -1471,7 +1471,7 @@ static void cgroup_rm_file(struct cgroup *cgrp, const struct cftype *cft)
 
 		spin_lock_irq(&cgroup_file_kn_lock);
 		cfile->kn = NULL;
-		
+		spin_unlock_irq(&cgroup_file_kn_lock);
 	}
 
 	kernfs_remove_by_name(cgrp->kn, cgroup_file_name(cgrp, cft, name));
