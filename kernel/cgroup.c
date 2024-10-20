@@ -1471,7 +1471,7 @@ static void cgroup_rm_file(struct cgroup *cgrp, const struct cftype *cft)
 
 		spin_lock_irq(&cgroup_file_kn_lock);
 		cfile->kn = NULL;
-		spin_unlock_irq(&cgroup_file_kn_lock);
+		
 	}
 
 	kernfs_remove_by_name(cgrp->kn, cgroup_file_name(cgrp, cft, name));
@@ -3721,6 +3721,11 @@ static int cgroup_add_file(struct cgroup_subsys_state *css, struct cgroup *cgrp,
 		spin_unlock_irq(&cgroup_file_kn_lock);
 	}
 
+	if (cft->ss && (cgrp->root->flags & CGRP_ROOT_NOPREFIX) && !(cft->flags & CFTYPE_NO_PREFIX)) {
+				snprintf(name, CGROUP_FILE_NAME_MAX, "%s.%s", cft->ss->name, cft->name);
+				kernfs_create_link(cgrp->kn, name, kn);
+	}
+	
 	return 0;
 }
 
