@@ -211,9 +211,9 @@ dtb-$(CONFIG_ARCH_MSM8998) += msm8998-sim.dtb \
 	msm8998-v2.1-interposer-sdm660-qrd.dtb
 endif
 else
-dtb-$(CONFIG_MACH_SONY_MAPLE) += msm8998-yoshino-maple_generic.dtb \
-	msm8998-v2-yoshino-maple_generic.dtb \
-	msm8998-v2.1-yoshino-maple_generic.dtb
+dtb-$(CONFIG_MACH_SONY_MAPLE) += msm8998-yoshino-maple_dcm.dtb \
+	msm8998-v2-yoshino-maple_dcm.dtb \
+	msm8998-v2.1-yoshino-maple_dcm.dtb
 dtb-$(CONFIG_MACH_SONY_MAPLE_DSDS) += msm8998-yoshino-maple_dsds.dtb \
 	msm8998-v2-yoshino-maple_dsds.dtb \
 	msm8998-v2.1-yoshino-maple_dsds.dtb
