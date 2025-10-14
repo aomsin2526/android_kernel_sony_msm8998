@@ -237,7 +237,7 @@ static inline bool sb_rdonly(const struct super_block *sb)
 #if LINUX_VERSION_CODE >= KERNEL_VERSION(4, 9, 0)
 	/* EMPTY */
 #else
-static inline sdfat_timespec_t current_time(struct inode *inode)
+static inline sdfat_timespec_t sdfat_current_time(struct inode *inode)
 {
 	return CURRENT_TIME_SEC;
 }
